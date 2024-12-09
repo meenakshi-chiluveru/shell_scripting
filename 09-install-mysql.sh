@@ -10,3 +10,11 @@ else
 fi # fi is end of conditional programme
 
 yum install mysql -y
+
+if [ $? -ne 0 ]
+then
+  echo "ERROR::installing mysql failed"
+  exit 1
+else
+  echo "installing mysql is success"
+fi
