@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ID=$(id -u)
-echo "scriptname: @0"
+echo "scriptname: $0"
 validate(){
   if [ $1 -ne 0 ]
   then
