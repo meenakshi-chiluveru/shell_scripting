@@ -1,7 +1,9 @@
 #!/bin/bash
 
 ID=$(id -u)
-echo "scriptname: $0"
+timestamp=$(date +%F-%H-%M-%S)
+
+logfile="/tmp/$0-$timestamp.log" # special variables will work in double quotes
 validate(){
   if [ $1 -ne 0 ]
   then
@@ -19,8 +21,8 @@ else
   echo "you are root user"
 fi # fi is end of conditional programme
 
-yum install mysql -y
+yum install mysql -y &>> $logfile
 validate $? "installing mysql" # $1 is exit status $2 is installing mysql or git
 
-yum install git -y
+yum install git -y &>> $logfile
 validate $? "installing git"
