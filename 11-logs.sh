@@ -1,12 +1,14 @@
 #!/bin/bash
 
 ID=$(id -u)
-timestamp=$(date +%F-%H-%M-%S)
-
-logfile="/tmp/$0-$timestamp.log" # special variables will work in double quotes
 R="\e[31m"
 G="\e[32m"
 N="\e[0m" # normal color
+timestamp=$(date +%F-%H-%M-%S)
+
+logfile="/tmp/$0-$timestamp.log"
+ # special variables will work in double quotes
+echo "script started executing at $timestamp"
 
 validate(){
   if [ $1 -ne 0 ]
